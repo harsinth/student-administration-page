@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - School Administration System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+</head>
+<body ng-app="schoolApp" ng-controller="teacherDashboardController">
+    <div class="container">
+        <header>
+            <h1>Teacher Dashboard</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="classes.html">My Classes</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h2>Welcome, {{teacher.name}}!</h2>
+            <div class="dashboard-info">
+                <div class="info-card">
+                    <h3>Your Information</h3>
+                    <p><strong>ID:</strong> {{teacher.id}}</p>
+                    <p><strong>Subject:</strong> {{teacher.subject}}</p>
+                    <p><strong>Email:</strong> {{teacher.email}}</p>
+                </div>
+                <div class="info-card">
+                    <h3>Upcoming Events</h3>
+                    <ul>
+                        <li ng-repeat="event in events">{{event.name}} - {{event.date}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="classes-section">
+                <h3>Your Classes</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Grade</th>
+                            <th>Schedule</th>
+                            <th>Students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="class in classes">
+                            <td>{{class.name}}</td>
+                            <td>{{class.grade}}</td>
+                            <td>{{class.schedule}}</td>
+                            <td>{{class.studentCount}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 School Administration System</p>
+        </footer>
+    </div>
+</body>
+</html>
+
