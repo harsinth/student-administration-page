@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC International School</title>
+    <style>
+        header {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: white;
+        }
+        nav {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body ng-app="schoolApp">
+    <div class="container">
+        <header>
+            <h1>ABC International School</h1>
+            
+        </header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="welcome-section">
+                <h2>Welcome to ABC International School</h2>
+
+                <div class="buttons">
+                    <a href="register.html" class="btn">Register</a>
+                    <a href="login.html" class="btn">Login</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 School Administration System</p>
+        </footer>
+    </div>
+</body>
+</html>
