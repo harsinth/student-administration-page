@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="students.xsd">
+    <student id="1">
+        <name>John Smith</name>
+        <email>john@school.com</email>
+        <grade>10th</grade>
+        <dob>2008-05-15</dob>
+        <address>123 Main St, Anytown</address>
+        <phone>555-123-4567</phone>
+    </student>
+    <student id="2">
+        <name>Sarah Johnson</name>
+        <email>sarah@school.com</email>
+        <grade>9th</grade>
+        <dob>2009-08-22</dob>
+        <address>456 Oak Ave, Anytown</address>
+        <phone>555-987-6543</phone>
+    </student>
+    <student id="3">
+        <name>Michael Brown</name>
+        <email>michael@school.com</email>
+        <grade>11th</grade>
+        <dob>2007-03-10</dob>
+        <address>789 Pine St, Anytown</address>
+        <phone>555-456-7890</phone>
+    </student>
+</students>

@@ -1,0 +1,61 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john@school.com",
+      "grade": "10th",
+      "dob": "2008-05-15",
+      "address": "123 Main St, Anytown",
+      "phone": "555-123-4567"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Johnson",
+      "email": "sarah@school.com",
+      "grade": "9th",
+      "dob": "2009-08-22",
+      "address": "456 Oak Ave, Anytown",
+      "phone": "555-987-6543"
+    },
+    {
+      "id": 3,
+      "name": "Michael Brown",
+      "email": "michael@school.com",
+      "grade": "11th",
+      "dob": "2007-03-10",
+      "address": "789 Pine St, Anytown",
+      "phone": "555-456-7890"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "Jane Doe",
+      "email": "jane@school.com",
+      "subject": "Mathematics",
+      "qualification": "M.Sc. Mathematics",
+      "experience": 8,
+      "phone": "555-111-2222"
+    },
+    {
+      "id": 2,
+      "name": "Robert Wilson",
+      "email": "robert@school.com",
+      "subject": "Science",
+      "qualification": "Ph.D. Physics",
+      "experience": 12,
+      "phone": "555-333-4444"
+    },
+    {
+      "id": 3,
+      "name": "Emily Davis",
+      "email": "emily@school.com",
+      "subject": "English",
+      "qualification": "M.A. English Literature",
+      "experience": 5,
+      "phone": "555-555-6666"
+    }
+  ]
+}
+
