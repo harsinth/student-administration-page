@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses - School Administration System</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+</head>
+<body ng-app="schoolApp" ng-controller="studentCoursesController">
+    <div class="container">
+        <header>
+            <h1>My Courses</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="courses.html">My Courses</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="courses-container">
+                <div class="courses-header">
+                    <h2>Enrolled Courses</h2>
+                    <button class="btn" ng-click="showAvailableCourses = !showAvailableCourses">
+                        {{showAvailableCourses ? 'Hide Available Courses' : 'Browse Available Courses'}}
+                    </button>
+                </div>
+                
+                <!-- Enrolled Courses -->
+                <div class="courses-section">
+                    <div class="course-cards">
+                        <div class="course-card" ng-repeat="course in enrolledCourses">
+                            <div class="course-header">
+                                <h3>{{course.name}}</h3>
+                                <span class="course-code">{{course.code}}</span>
+                            </div>
+                            <div class="course-details">
+                                <p><strong>Teacher:</strong> {{course.teacher}}</p>
+                                <p><strong>Schedule:</strong> {{course.schedule}}</p>
+                                <p><strong>Room:</strong> {{course.room || 'TBA'}}</p>
+                                <p><strong>Credits:</strong> {{course.credits}}</p>
+                            </div>
+                            <div class="course-description">
+                                <p>{{course.description}}</p>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-danger" ng-click="unenrollCourse(course)">Unenroll</button>
+                                <button class="btn" ng-click="viewCourseDetails(course)">View Details</button>
+                            </div>
+                        </div>
+                        <div class="empty-state" ng-if="enrolledCourses.length === 0">
+                            <p>You are not enrolled in any courses yet.</p>
+                            <button class="btn" ng-click="showAvailableCourses = true">Browse Available Courses</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Available Courses -->
+                <div class="courses-section" ng-if="showAvailableCourses">
+                    <h2>Available Courses</h2>
+                    <div class="search-filter">
+                        <input type="text" ng-model="searchCourse" placeholder="Search courses...">
+                        <select ng-model="filterSubject">
+                            <option value="">All Subjects</option>
+                            <option value="Mathematics">Mathematics</option>
+                            <option value="Science">Science</option>
+                            <option value="English">English</option>
+                            <option value="History">History</option>
+                            <option value="Computer Science">Computer Science</option>
+                        </select>
+                    </div>
+                    <div class="course-cards">
+                        <div class="course-card" ng-repeat="course in availableCourses | filter:searchCourse | filter:{subject: filterSubject}">
+                            <div class="course-header">
+                                <h3>{{course.name}}</h3>
+                                <span class="course-code">{{course.code}}</span>
+                            </div>
+                            <div class="course-details">
+                                <p><strong>Teacher:</strong> {{course.teacher}}</p>
+                                <p><strong>Subject:</strong> {{course.subject}}</p>
+                                <p><strong>Schedule:</strong> {{course.schedule}}</p>
+                                <p><strong>Credits:</strong> {{course.credits}}</p>
+                            </div>
+                            <div class="course-description">
+                                <p>{{course.description}}</p>
+                            </div>
+                            <div class="course-actions">
+                                <button class="btn btn-primary" ng-click="enrollCourse(course)" ng-disabled="isEnrolled(course)">
+                                    {{isEnrolled(course) ? 'Enrolled' : 'Enroll'}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Details Modal -->
+                <div class="modal" ng-if="selectedCourse">
+                    <div class="modal-content course-detail-modal">
+                        <span class="close" ng-click="selectedCourse = null">&times;</span>
+                        <h2>{{selectedCourse.name}}</h2>
+                        <div class="course-detail-content">
+                            <div class="course-info">
+                                <p><strong>Course Code:</strong> {{selectedCourse.code}}</p>
+                                <p><strong>Teacher:</strong> {{selectedCourse.teacher}}</p>
+                                <p><strong>Subject:</strong> {{selectedCourse.subject}}</p>
+                                <p><strong>Schedule:</strong> {{selectedCourse.schedule}}</p>
+                                <p><strong>Room:</strong> {{selectedCourse.room || 'TBA'}}</p>
+                                <p><strong>Credits:</strong> {{selectedCourse.credits}}</p>
+                                <p><strong>Capacity:</strong> {{selectedCourse.enrolled}}/{{selectedCourse.capacity}}</p>
+                            </div>
+                            <div class="course-description">
+                                <h3>Description</h3>
+                                <p>{{selectedCourse.description}}</p>
+                            </div>
+                            <div class="course-syllabus">
+                                <h3>Syllabus</h3>
+                                <ul>
+                                    <li ng-repeat="topic in selectedCourse.syllabus">{{topic}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 School Administration System</p>
+        </footer>
+    </div>
+</body>
+</html>
+
